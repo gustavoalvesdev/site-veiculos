@@ -405,7 +405,7 @@ footer p {
 }
 
 .search1 {
-    width: 300px;
+    width: 90%;
 }
 
 .search1 h2 {
@@ -431,7 +431,7 @@ footer p {
     width: 30%;
     height: 20px;
     border-radius: 20px;
-    background: rgb(200, 200, 200);
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(200, 200, 200));
 }
 
 .pointer-barra {
@@ -443,7 +443,8 @@ footer p {
     top: -3px;
     border-radius: 8px;
     background: rgb(210, 210, 210);
-    border: 1px solid black;
+    border: 1px solid #777;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(180, 180, 180));
 }
 
 .valor-pesquisa {
@@ -489,12 +490,38 @@ footer p {
     border-radius: 3px;
     vertical-align: top;
     cursor: pointer;
+    position: relative;
+}
+
+.form-venda-wrapper input[type=checkbox]:checked+label>.circle {
+    display: block;
+}
+
+.circle {
+    display: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: black;
+    position: absolute;
+    left: 6px;
+    top: 6px;
 }
 
 .form-venda-wrapper span {
     padding: 0 10px;
     display: inline-block;
     vertical-align: top;
+}
+
+.vitrine-venda {
+    overflow: hidden;
+    float: left;
+    width: 70%;
+}
+
+.vitrine-venda .vitrine-destaque {
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 1100px) {
@@ -560,6 +587,21 @@ footer p {
         width: 100%;
     }
     .w50 {
+        width: 100%;
+    }
+    .sidebar {
+        width: 100%;
+        text-align: center;
+    }
+    .search1 {
+        display: inline-block;
+    }
+    .search2 {
+        text-align: left;
+        display: inline-block;
+    }
+    .vitrine-venda {
+        text-align: center;
         width: 100%;
     }
 }
