@@ -1,48 +1,20 @@
-<!DOCTYPE html>
-<html>
+<?php 
+require 'config.php';
+require 'pages/header.php';
 
-<head>
-	<title>Projeto 05</title>
-	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
-</head>
+require 'classes/Veiculo.php';
 
-<body>
+$id = addslashes($_GET['id']);
 
-	<header style="border-bottom: 3px solid #EB2D2D;">
+if (!isset($id) || empty($id)) {
+	header('Location: ' . $base_url);
+	exit;
+}
 
-		<div class="container">
-			<div class="logo">
-				<img src="imagens/logo.jpg" />
-			</div>
-			<!--logo-->
+$v = new Veiculo();
+$veiculo = $v->obter($id);
 
-			<nav class="desktop">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a style="color:#EB2D2D;" href="venda.html">Venda</a></li>
-					<li><a href="sobre.html">Sobre</a></li>
-					<li><a goto="contato" href="#">Contato</a></li>
-				</ul>
-			</nav>
-			<!--desktop-->
-
-			<nav class="mobile">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a style="color:#EB2D2D;" href="venda.html">Venda</a></li>
-					<li><a href="sobre.html">Sobre</a></li>
-					<li><a goto="contato" href="index.html#contato">Contato</a></li>
-				</ul>
-			</nav>
-			<!--mobile-->
-
-			<div class="clear"></div>
-		</div>
-		<!--container-->
-	</header>
+?>
 
 
 
@@ -60,7 +32,7 @@
 			<div class="info-veiculo">
 				<div class="info-bread"><a href="index.html">HOME</a><span>></span>
 					<a href="venda.html">VENDA</a><span>></span>
-					<a href="veiculo-teste.html">VEÍCULO DE TESTE</a>
+					<a href="<?php $base_url ?>veiculo.php?id=<?= $id ?>"><?= strtoupper($veiculo['titulo']) ?></a>
 				</div>
 				<div class="foto-destaque"></div>
 				<div class="nav-galeria-parent">
@@ -69,7 +41,7 @@
 					<div class="nav-galeria">
 						<div class="nav-galeria-wraper">
 							<div class="mini-img-wraper">
-								<div style="background-image:url('imagens/carro1.jpg');" class="mini-img"></div>
+								<div style="background-image:url('imagens/<?= $veiculo['foto_principal'] ?>');" class="mini-img"></div>
 							</div>
 							<div class="mini-img-wraper">
 								<div style="background-image:url('imagens/carro2.jpg');" class="mini-img"></div>
@@ -91,10 +63,9 @@
 			<!--info-->
 
 			<div class="descricao-veiculo">
-				<h2>R$20.000,00</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dolor elementum, aliquet diam
-					non, placerat risus. Suspendisse fringilla sollicitudin velit sed elementum</p>
-				<a class="btn1" href="veiculo-teste.html#contato">Entre em contato</a>
+				<h2>R$ <?= number_format($veiculo['preco'], 2, ',', '.') ?></h2>
+				<p><?= $veiculo['descricao'] ?></p>
+				<a class="btn1" href="<?= $base_url ?>veiculo.php?id=<?= $id ?>#contato">Entre em contato</a>
 			</div>
 			<!--descricao-veiculo-->
 			<div class="clear"></div>
@@ -197,24 +168,4 @@
 	</section>
 	<!--veiculos-destaque-->
 
-	<footer>
-		<div class="container">
-			<nav>
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a style="color:#EB2D2D;" href="venda.html">Venda</a></li>
-					<li><a href="sobre.html">Sobre</a></li>
-					<li><a href="index.html#contato">Contato</a></li>
-				</ul>
-			</nav>
-			<p>Todos os direitos reservados</p>
-			<div class="clear"></div>
-		</div>
-		<!--container-->
-	</footer>
-
-	<script src="js/jquery-3.6.0.min.js"></script>
-	<script src="js/functions.js"></script>
-</body>
-
-</html>
+<?php require 'pages/footer.php'; ?>
