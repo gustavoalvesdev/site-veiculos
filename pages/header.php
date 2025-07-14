@@ -29,20 +29,20 @@
 
 	<nav class="desktop">
 		<ul>
-			<li><a style="color:#EB2D2D;" href="index.html">Home</a></li>
-			<li><a href="venda.html">Venda</a></li>
-			<li><a href="sobre.html">Sobre</a></li>
-			<li><a goto="contato" href="index.html#contato">Contato</a></li>
+			<li><a style="color:#EB2D2D;" href="./">Home</a></li>
+			<li><a href="veiculos.php">Venda</a></li>
+			<li><a href="sobre.php">Sobre</a></li>
+			<li><a goto="contato" href="index.php#contato">Contato</a></li>
 		</ul>
 	</nav>
 	<!--desktop-->
 
 	<nav class="mobile">
 		<ul>
-			<li><a style="color:#EB2D2D;" href="index.html">Home</a></li>
-			<li><a href="venda.html">Venda</a></li>
-			<li><a href="sobre.html">Sobre</a></li>
-			<li><a goto="contato" href="index.html#contato">Contato</a></li>
+			<li><a style="color:#EB2D2D;" href="./">Home</a></li>
+			<li><a href="veiculos.php">Venda</a></li>
+			<li><a href="sobre.php">Sobre</a></li>
+			<li><a goto="contato" href="index.php#contato">Contato</a></li>
 		</ul>
 	</nav>
 	<!--mobile-->

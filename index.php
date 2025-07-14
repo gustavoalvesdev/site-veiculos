@@ -24,28 +24,7 @@
 		</div>
 		<!--line-titulo-->
 		<div class="container">
-			<?php 
-
-				require 'classes/Veiculo.php';
-
-				$veiculos = new Veiculo();
-
-				$lista = $veiculos->listar();
-
-				foreach ($lista as $item):
-			?>
-			<div class="vitrine-destaque">
-				<div style="background-image:url('imagens/<?= $item['foto_principal'] ?>');" class="carro-img"></div>
-				<!--carro-img-->
-				<div class="info-carro">
-					<h2><?= $item['titulo'] ?></h2>
-					<p><?= $item['info'] ?></p>
-					<a class="btn1" href="veiculo.php?id=<?= $item['id'] ?>">Mais Detalhes</a>
-				</div>
-				<!--info-carro-->
-			</div>
-			<!--vitrine-destaque-->
-			<?php endforeach; ?>
+			<?php require 'pages/vitrine-destaque.php'; ?>
 			<div class="clear"></div>
 		</div>
 		<!--container-->
@@ -98,29 +77,56 @@
 		</div>
 		<!--line-titulo-->
 
-		<form>
+		<?php 
+
+			if (isset($_POST['acao'])) {
+
+				require 'classes/Contato.php';
+
+				$contato = new Contato();
+
+				$nome = addslashes($_POST['nome']);
+				$email = addslashes($_POST['email']);
+				$telefone = addslashes($_POST['telefone']);
+				$mensagem = addslashes($_POST['mensagem']);
+
+				if ($contato->addContato($nome, $email, $telefone, $mensagem)) {
+
+					echo "<p>Mensagem enviada com sucesso!</p>";
+
+				} else {
+					echo "<p>Falha ao enviar mensagem!</p>";
+				}
+
+				header('Location: ./index.php#contato');
+
+			}
+
+		?>
+
+		<form method="POST">
 			<div class="input-wraper w100">
-				<input placeholder="Nome*" type="text" required />
+				<input placeholder="Nome*" name="nome" type="text" required />
 			</div>
 			<!--input-wraper-->
 
 			<div class="input-wraper w50">
-				<input placeholder="E-mail*" type="text" required />
+				<input placeholder="E-mail*" name="email" type="text" required />
 			</div>
 			<!--input-wraper-->
 
 			<div class="input-wraper w50">
-				<input placeholder="Telefone*" type="text" required />
+				<input placeholder="Telefone*" name="telefone" type="text" required />
 			</div>
 			<!--input-wraper-->
 
 			<div class="input-wraper w100">
-				<textarea placeholder="Mensagem*" required></textarea>
+				<textarea placeholder="Mensagem*" name="mensagem" required></textarea>
 			</div>
 			<!--input-wraper-->
 
 			<div class="input-wraper w100">
-				<input class="btn1" type="submit" value="Enviar" />
+				<input class="btn1" type="submit" name="acao" value="Enviar" />
 			</div>
 			<!--input-wraper-->
 
@@ -131,21 +137,5 @@
 
 	</section>
 	<!--contato-->
-
-	<footer>
-		<div class="container">
-			<nav>
-				<ul>
-					<li><a style="color:#EB2D2D;" href="index.html">Home</a></li>
-					<li><a href="venda.html">Venda</a></li>
-					<li><a href="sobre.html">Sobre</a></li>
-					<li><a href="index.html#contato">Contato</a></li>
-				</ul>
-			</nav>
-			<p>Todos os direitos reservados</p>
-			<div class="clear"></div>
-		</div>
-		<!--container-->
-	</footer>
 
 <?php require 'pages/footer.php'; ?>

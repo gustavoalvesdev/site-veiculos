@@ -1,48 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<title>Projeto 05</title>
-	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
-</head>
-
-<body>
-
-	<header style="border-bottom: 3px solid #EB2D2D;">
-
-		<div class="container">
-			<div class="logo">
-				<a href="index.html"><img src="imagens/logo.jpg" /></a>
-			</div>
-			<!--logo-->
-
-			<nav class="desktop">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="venda.html">Venda</a></li>
-					<li><a style="color:#EB2D2D;" href="sobre.html">Sobre</a></li>
-					<li><a href="index.html#contato">Contato</a></li>
-				</ul>
-			</nav>
-			<!--desktop-->
-
-			<nav class="mobile">
-				<ul>
-					<li><a style="color:#EB2D2D;" href="index.html">Home</a></li>
-					<li><a href="venda.html">Venda</a></li>
-					<li><a style="color:#EB2D2D;" href="sobre.html">Sobre</a></li>
-					<li><a href="index.html#contato">Contato</a></li>
-				</ul>
-			</nav>
-			<!--mobile-->
-
-			<div class="clear"></div>
-		</div>
-		<!--container-->
-	</header>
+<?php require 'config.php'; ?>
+<?php require 'pages/header.php'; ?>
 
 	<section class="sobre">
 		<div class="line-titulo">
